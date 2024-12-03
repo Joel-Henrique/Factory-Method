@@ -8,11 +8,11 @@ public class ServicoWhatsappTest {
     @Test
     void deveExecutarWhatsapp(){
         IServico servico = ServicoFactory.obterServico("Whatsapp");
-        assertEquals("Mensagem do Whatsapp enviada com sucesso!", servico.executar());
+        assertEquals("Mensagem de Whatsapp enviada com sucesso!", servico.executar());
     }
     @Test
     void deveCancelarEstacionamento(){
         IServico servico = ServicoFactory.obterServico("Whatsapp");
-        assertEquals("Mensagem do Whatsapp deletada com sucesso!", servico.cancelar());
+        assertEquals("Mensagem de Whatsapp deletada com sucesso!", servico.cancelar());
     }
 }
