@@ -1,13 +1,21 @@
 package org.example;
 
-public class ServicoTelegram implements IServico{
-    @Override
-    public String executar() {
-        return "Mensagem do Telegram enviada com sucesso!";
+public class ServicoTelegram extends Aplicativo {
+
+    public ServicoTelegram(float valorBase, int numMensagens) {
+        super(valorBase, numMensagens);
     }
 
     @Override
-    public String cancelar() {
-        return "Mensagem do Telegram deletada com sucesso!";
+    public String executar() {
+        Parametros parametros = Parametros.getInstance();
+        return "Mensagem do Telegram do user " + parametros.getNomeUser() +
+                " enviada para " + parametros.getNomePessoaMensagem() +
+                " com sucesso!";
+    }
+
+
+    public float calcularValor() {
+        return this.valorBase * (1 + this.urgencia.percentualAumento());
     }
 }

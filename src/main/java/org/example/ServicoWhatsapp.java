@@ -1,13 +1,21 @@
 package org.example;
 
-public class ServicoWhatsapp implements IServico{
-    @Override
-    public String executar() {
-        return "Mensagem de Whatsapp enviada com sucesso!";
+public class ServicoWhatsapp extends Aplicativo{
+
+    public ServicoWhatsapp(float valorBase, int numMensagens) {
+        super(valorBase,numMensagens);
     }
 
     @Override
-    public String cancelar() {
-        return "Mensagem de Whatsapp deletada com sucesso!";
+    public float calcularValor() {
+        return (this.valorBase * this.numMensagens);
+    }
+
+    @Override
+    public String executar() {
+        Parametros parametros = Parametros.getInstance();
+        return "Mensagem de Whatsapp do user " + parametros.getNomeUser() +
+                " enviada para " + parametros.getNomePessoaMensagem() +
+                " com sucesso!";
     }
 }
