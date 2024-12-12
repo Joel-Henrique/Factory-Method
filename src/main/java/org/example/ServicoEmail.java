@@ -1,9 +1,13 @@
 package org.example;
 
-public class ServicoEmail implements IServico{
+public class ServicoEmail implements IServico {
+
     @Override
     public String executar() {
-        return "Mensagem de Email enviada com sucesso!";
+        Parametros parametros = Parametros.getInstance();
+        return "Mensagem de Email do user " + parametros.getNomeUser() +
+                " enviada para " + parametros.getNomePessoaMensagem() +
+                " com sucesso!";
     }
 
     @Override
